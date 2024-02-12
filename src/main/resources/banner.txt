@@ -1,0 +1,9 @@
+-------------------------------------------------------------
+LEVEL UP GAMES
+-------------------------------------------------------------
+type 'help' to see a list of commands
+-------------------------------------------------------------
+Enter 'create {NAME}' to create a character with a custom name. 
+Enter 'start-game' to start your adventure.
+Enter 'x' to end your journey.
+-------------------------------------------------------------
