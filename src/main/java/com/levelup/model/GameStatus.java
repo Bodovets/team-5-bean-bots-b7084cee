@@ -6,6 +6,7 @@ package com.levelup.model;
 public class GameStatus {
     private String characterName;
     private int currentPositionX;
+    private int currentPositionY;
 
     public void setCharacterName(String characterName) {
         this.characterName = characterName;
@@ -23,5 +24,12 @@ public class GameStatus {
         this.currentPositionX = currentPositionX;
     }
 
+    public void setCurrentPositionY(int currentPositionY) {
+        this.currentPositionY = currentPositionY;
+    }
+
+    public int getCurrentPositionY() {
+        return currentPositionY;
+    }
 
 }
