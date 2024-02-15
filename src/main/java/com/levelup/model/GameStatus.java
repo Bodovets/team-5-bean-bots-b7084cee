@@ -41,4 +41,12 @@ public class GameStatus {
         this.moveCount = moveCount;
     }
 
+    @Override
+    public String toString() {
+        return "GameStatus [characterName=" + characterName + ", currentPositionX=" + currentPositionX
+                + ", currentPositionY=" + currentPositionY + ", moveCount=" + moveCount + "]";
+    }
+
+    
+
 }

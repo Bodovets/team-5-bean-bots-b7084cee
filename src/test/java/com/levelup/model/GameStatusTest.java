@@ -1,7 +1,6 @@
 package com.levelup.model;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -98,5 +97,19 @@ public class GameStatusTest {
         gameStatus.setMoveCount(moveCount);
         assertEquals(moveCount, gameStatus.getMoveCount());
         assertTrue(gameStatus.getMoveCount() >= 0);       
+    }
+
+    @Test
+    void toStringTest() {
+        GameStatus gameStatus = new GameStatus();
+        String name = "Joe";
+        gameStatus.setCharacterName(name);
+        gameStatus.setCurrentPositionX(5);
+        gameStatus.setCurrentPositionY(70);
+        gameStatus.setMoveCount(32);
+        assertTrue(gameStatus.toString().contains(name));
+        assertTrue(gameStatus.toString().contains("5"));
+        assertTrue(gameStatus.toString().contains("70"));
+        assertTrue(gameStatus.toString().contains("32"));
     }
 }
