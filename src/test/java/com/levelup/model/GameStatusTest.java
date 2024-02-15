@@ -74,11 +74,19 @@ public class GameStatusTest {
 
 
     }
-@Test
+    
+    @Test
     void getMoveCountValueTest() {
         GameStatus gameStatus = new GameStatus();
-        assertTrue(gameStatus.getMoveCount() >= 0);
+        assertTrue(gameStatus.getMoveCount() >= 0);       
+    }
 
-        
+    @Test
+    void setMoveCountValueTest() {
+        GameStatus gameStatus = new GameStatus();
+        int moveCount = 3;
+        gameStatus.setMoveCount(moveCount);
+        assertEquals(moveCount, gameStatus.getMoveCount());
+        assertTrue(gameStatus.getMoveCount() >= 0);       
     }
 }

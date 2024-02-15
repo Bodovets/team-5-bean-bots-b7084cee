@@ -7,6 +7,7 @@ public class GameStatus {
     private String characterName;
     private int currentPositionX;
     private int currentPositionY;
+    private int moveCount;
 
     public void setCharacterName(String characterName) {
         this.characterName = characterName;
@@ -33,7 +34,11 @@ public class GameStatus {
     }
 
     public int getMoveCount() {
-        return 8;
+        return this.moveCount;
+    }
+
+    public void setMoveCount(int moveCount) {
+        this.moveCount = moveCount;
     }
 
 }
