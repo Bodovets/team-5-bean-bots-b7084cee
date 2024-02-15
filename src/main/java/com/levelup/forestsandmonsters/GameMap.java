@@ -1,9 +1,11 @@
 package com.levelup.forestsandmonsters;
 
-import com.levelup.forestsandmonsters.GameController.DIRECTION;
 import java.awt.Point;
 
-public class GameMap {
+import com.levelup.forestsandmonsters.GameController.DIRECTION;
+import com.levelup.model.Position;
+
+ public class GameMap {
 
     Position[][] positions;
     public final Position startingPosition = new Position(0,0);
@@ -26,8 +28,8 @@ public class GameMap {
     }
 
     public Position calculatePosition(Position startingPosition, DIRECTION direction) {
-        int calculatedX = startingPosition.coordinates.x;
-        int calculatedY = startingPosition.coordinates.y;
+        int calculatedX = startingPosition.getX();
+        int calculatedY = startingPosition.getY();
 
         if(direction.equals(DIRECTION.NORTH)){
             calculatedY = calculatedY + 1;
