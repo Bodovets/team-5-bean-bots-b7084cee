@@ -32,4 +32,8 @@ public class GameStatus {
         return currentPositionY;
     }
 
+    public GameStatus getStatus() {
+        return null;
+    }
+
 }
