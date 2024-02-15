@@ -5,11 +5,11 @@ This split is VERY simple: the only customization is setting the x and y.
 
 Scenario Outline:: Create Position
 
-    Given User supplies the x and y
+    Given User supplies values <x> and <y>
     When the position is created
-    Then the Game sets the position to x,y
+    Then the created position is <xOutput>,<yOutput>
     Examples:
-        | x | y |
-        | 5 | 6 |
+        | x | y |xOutput|yOutput
+        | 5 | 6 | 5| 6
         
 
