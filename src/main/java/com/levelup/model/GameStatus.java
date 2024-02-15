@@ -4,13 +4,14 @@ package com.levelup.model;
  * GameStatus
  */
 public class GameStatus {
+    private String characterName;
 
     public void setCharacterName(String characterName) {
+        this.characterName = characterName;
     }
 
-    public Object getCharacterName() {
-        return null;
+    public String getCharacterName() {
+        return this.characterName;
     }
 
-    
 }
