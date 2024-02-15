@@ -13,17 +13,18 @@ Feature: Move in a direction
         And YCoordinates <endingPositionY>
         And the new move count is <endingMoveCount>
         Examples:
-            | startingPositionX | startingPositionY | direction | startingMoveCount | endingPositionX | endingPositionY | endingMoveCount |
-            |5|5|NORTH|5|6|
-            |9|9|EAST|9|9|
-            |5|9|SOUTH|5|8|
-            |7|0|SOUTH|7|0|
-            |0|0|WEASTSOUTHT|0|0|
-            |0|1|EAST|0|2|
-            |0|9|NORTH|0|9|
-            |9|0|EAST|9|0|
-            |2|3|WEASTST|1|3|
-            |4|5|SOUTH|4|4|
-            |5|6|SOUTH|5|5|
-            |1|2|EAST|2|2|
-            |7|8|NORTH|7|9|
+            | startingPositionX | startingPositionY | direction | startingMoveCount | endingPositionX | endingPositionY |
+            | 5 | 5 | NORTH | 0 | 5 | 6 |
+            | 9 | 9 | EAST | 5 | 9 | 9 |
+            | 5 | 9 | SOUTH | 7 | 5 | 8 |
+            | 7 | 0 | SOUTH | 2 | 7 | 0 |
+            | 0 | 0 | WEST | 5 | 0 | 0 |
+            | 0 | 1 | EAST | 6 | 0 | 2 |
+            | 0 | 9 | NORTH | 114 | 0 | 9 |
+            | 9 | 0 | EAST | 23 | 9 | 0 |
+            | 2 | 3 | WEST | 0 | 1 | 3 |
+            | 4 | 5 | SOUTH | 5 | 4 | 4 |
+            | 5 | 6 | SOUTH | 7 | 5 | 5 |
+            | 1 | 2 | EAST | 11 | 2 | 2 |
+            | 7 | 8 | NORTH | 33 | 7 | 9 |
+
