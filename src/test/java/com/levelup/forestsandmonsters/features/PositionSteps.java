@@ -1,6 +1,6 @@
 package com.levelup.forestsandmonsters.features;
 
-import com.levelup.forestsandmonsters.cli.Position;
+import com.levelup.model.Position;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

@@ -1,7 +1,7 @@
 package com.levelup.forestsandmonsters;
-import com.levelup.forestsandmonsters.cli.Position;
-
 import org.junit.Test;
+
+import com.levelup.model.Position;
 
 
 public class PositionTest {

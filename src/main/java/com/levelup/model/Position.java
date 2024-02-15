@@ -1,4 +1,4 @@
-package com.levelup.forestsandmonsters.cli;
+package com.levelup.model;
 
 public class Position {
 
