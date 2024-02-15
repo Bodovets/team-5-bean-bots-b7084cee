@@ -48,4 +48,24 @@ public class GameStatusTest {
         assertEquals(name, gameStatus.getCharacterName());
     }
     
+    @Test
+    void getCurrentPositionXTest () {
+        GameStatus gameStatus = new GameStatus();
+        assertNotNull(gameStatus.getCurrentPositionX());
+    }
+    @Test
+    void setCurrentPositionXTest () {
+        GameStatus gameStatus = new GameStatus();
+        int currentPositionX = 3;
+        gameStatus.setCurrentPositionX(currentPositionX);
+        assertNotNull(gameStatus.getCurrentPositionX());
+    }
+
+    @Test
+    void setAndGetCurrentPositionXTest () {
+        GameStatus gameStatus = new GameStatus();
+        int currentPositionX = 3;
+        gameStatus.setCurrentPositionX(currentPositionX);
+        assertEquals(currentPositionX, gameStatus.getCurrentPositionX());
+    }
 }
