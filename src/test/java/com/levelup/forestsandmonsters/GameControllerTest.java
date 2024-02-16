@@ -59,4 +59,11 @@ public class GameControllerTest {
         assertEquals(0, testObj.status.moveCount);
     }
 
+    @Test
+    public void startGameCurrentPositionTest() {
+        testObj.startGame();
+        assertEquals(0, testObj.character.currentPosition.getX());
+        assertEquals(0, testObj.character.currentPosition.getY());
+    }
+
 }

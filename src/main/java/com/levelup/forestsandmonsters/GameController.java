@@ -3,6 +3,7 @@ package com.levelup.forestsandmonsters;
 import java.awt.Point;
 
 import com.levelup.model.Character;
+import com.levelup.model.Position;
 
 public class GameController {
 
@@ -51,6 +52,7 @@ public class GameController {
     public void startGame() {
         createCharacter(DEFAULT_CHARACTER_NAME);
         this.character.map = new GameMap();
+        this.character.enterMap(this.character.map);
         // TODO: Implement startGame - Should probably create tiles and put the character
         // on them?
         // TODO: Should also update the game results?
