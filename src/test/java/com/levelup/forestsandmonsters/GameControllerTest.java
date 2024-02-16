@@ -42,4 +42,11 @@ public class GameControllerTest {
         assertEquals(0, gameStatus.moveCount);
     }
 
+    @Test
+    public void startGameTest() {
+        testObj.startGame();
+        assertNotNull(testObj.getStatus());
+        // assertNotNull(testObj.character);
+    }
+
 }

@@ -5,6 +5,7 @@ import java.awt.Point;
 public class GameController {
 
     static final String DEFAULT_CHARACTER_NAME = "Character";
+    
 
     public class GameStatus {
         public String characterName = DEFAULT_CHARACTER_NAME;
