@@ -16,7 +16,7 @@ Scenario Outline: Move in a direction
     And the ending move count is <endingMoveCount>
     Examples:
         | startingPositionX | startingPositionY | staringMoveCount | direction | endingPositionX | endingPositionY | endingMoveCount |
-# | 5 | 5 | NORTH | 10 | 5 | 6 | 11 |
+| 0 | 0 | 1 | EAST | 1 | 0 | 2 |
 # | 9 | 9 | EAST | 32 | 9 | 9 | 33 |
 # | 5 | 9 | NORTH | 5 | 9 | 1 | 6 |
 # | 7 | 0 | SOUTH | 32 | 7 | 0 | 33 |
