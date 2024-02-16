@@ -8,10 +8,18 @@ public class GameController {
 
     public class GameStatus {
         // TODO: Add other status data
+        public int currentPositionX;
+        public int currentPositionY;
         public String characterName = DEFAULT_CHARACTER_NAME;
         public Point currentPosition = null;
         // TODO: Write a failing unit test that will force you to set this to the right number
         public int moveCount = -100;
+
+        @Override
+        public String toString() {
+        return "GameStatus [characterName=" + characterName + ", currentPositionX=" + currentPositionX
+                + ", currentPositionY=" + currentPositionY + ", moveCount=" + moveCount + "]";
+    }
     }
 
     GameStatus status;
