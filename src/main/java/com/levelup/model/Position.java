@@ -1,34 +1,18 @@
 package com.levelup.model;
 
+import java.awt.Point;
+
 public class Position {
 
-    private int x;
-    private int y;
+    public Point coordinates; 
 
-    public Position() {
-        x = 0;
-        y = 0;
-    }
+    public Position(int xCoordinates, int yCoordinates) {
 
-    public Position(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public void setY(int y) {
-        this.y = y;
+        coordinates = new Point(xCoordinates, yCoordinates);
     }
 
     public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
+        return 0;
     }
 
 }

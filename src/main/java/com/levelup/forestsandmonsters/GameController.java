@@ -5,33 +5,27 @@ import java.awt.Point;
 import com.levelup.model.Character;
 import com.levelup.model.Position;
 
-public class GameController {
 
-    static final String DEFAULT_CHARACTER_NAME = "Character";
+
+public class GameController {
     Character character;
-    
+    GameMap map;
 
     public class GameStatus {
-        public String characterName = DEFAULT_CHARACTER_NAME;
-        public Point currentPosition = null;
-        public int moveCount = 0;
+        public String characterName;
+        public Point currentPosition;
+        public int moveCount;
 
         @Override
         public String toString() {
-        return "GameStatus [characterName=" + characterName + ", currentPosition" + currentPosition
-                + ", moveCount=" + moveCount + "]";
-        }
-        public GameStatus() {
-            this.currentPosition = new Point();
+            return "Character " + characterName + " was on position " + currentPosition.x + "," + currentPosition.y + " at move count " + moveCount;
         }
     }
 
     GameStatus status;
 
     public GameController() {
-        this.status = new GameStatus();
-        this.status.moveCount = 0;
-
+        status = new GameStatus();
     }
 
     // TODO: Ensure this AND CLI commands match domain model
@@ -40,45 +34,50 @@ public class GameController {
     }
 
     public void createCharacter(String name) {
-        if (name != null && !name.equals("")) {
-            status.characterName = name;
-            this.character = new Character(name);
-        } else {
-            status.characterName = DEFAULT_CHARACTER_NAME;
-            this.character = new Character(DEFAULT_CHARACTER_NAME);
-        }
+        this.character = new Character(name);
+        this.status.characterName = character.getName();
     }
 
     public void startGame() {
-        createCharacter(DEFAULT_CHARACTER_NAME);
-        this.character.map = new GameMap();
-        this.character.enterMap(this.character.map);
-        // TODO: Implement startGame - Should probably create tiles and put the character
-        // on them?
-        // TODO: Should also update the game results?
+        map = new GameMap();
+        if(character == null)
+        {
+            this.character = new Character();
+        }
+        character.enterMap(map);
+        this.status.characterName = this.character.name;
+        this.status.currentPosition = this.character.getPosition().coordinates;
+        this.status.moveCount = this.character.getMoveCount();
     }
 
     public GameStatus getStatus() {
-        return this.status;
+        GameStatus snapshotStatus = new GameStatus();
+        snapshotStatus.characterName = this.status.characterName;
+        snapshotStatus.currentPosition = this.status.currentPosition;
+        snapshotStatus.moveCount = this.status.moveCount;
+        return snapshotStatus;
     }
 
     public void move(DIRECTION directionToMove) {
-        // TODO: Implement move - should call something on another class
-        // TODO: Should probably also update the game results
+        character.move(directionToMove);
+        this.status.currentPosition = character.getPosition().coordinates;
+        this.status.moveCount = character.getMoveCount();
     }
 
-    public void setCharacterPosition(Point coordinates) {
-        // TODO: IMPLEMENT THIS TO SET CHARACTERS CURRENT POSITION -- exists to be testable
+    //Exists for testability. Is not a system operation.
+    public void setCharacterPositionAndMoveCount(Point coordinates, int moveCount) {
+        if(character == null)
+            this.character = new Character();
+        this.character.currentPosition = new Position(coordinates.x, coordinates.y);
+        this.character.moveCount = moveCount;
+        this.status.characterName = this.character.name;
+        this.status.currentPosition = this.character.currentPosition.coordinates;
+        this.status.moveCount = this.character.moveCount;
     }
 
-    public void setCurrentMoveCount(int moveCount) {
-        // TODO: IMPLEMENT THIS TO SET CURRENT MOVE COUNT -- exists to be testable
-    }
-
+    // Exists for testability. Is not a system operation.
     public int getTotalPositions() {
-        // TODO: IMPLEMENT THIS TO GET THE TOTAL POSITIONS FROM THE MAP -- exists to be
-        // testable
-        return -10;
+        return this.map.getTotalPositions();
     }
 
 }

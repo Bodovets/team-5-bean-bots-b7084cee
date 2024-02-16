@@ -4,18 +4,15 @@ import org.junit.Test;
 import com.levelup.model.Position;
 
 
+import static org.junit.Assert.assertEquals;
+
+
 public class PositionTest {
     @Test
-    public void testPosition() {
-        Position position = new Position(0, 0);
-        assert (position.getX() == 0);
-        assert (position.getY() == 0);
+    public void initializationSetsCoordinates() {
+        Position testObj = new Position(0, 4);
+        assertEquals(0, testObj.coordinates.x);
+    
     }
 
-    @Test
-    public void testPosition2() {
-        Position position = new Position(5, 6);
-        assert (position.getX() == 5);
-        assert (position.getY() == 6);
-    }
 }

@@ -8,7 +8,6 @@ import io.cucumber.java.en.When;
 
 public class PositionSteps {
 
-    Position posObj = new Position();
 
     public PositionSteps() {
 

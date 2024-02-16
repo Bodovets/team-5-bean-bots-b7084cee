@@ -7,7 +7,7 @@ import com.levelup.forestsandmonsters.GameController.DIRECTION;
 public class Character {
 
     public static final String DEFAULT_NAME = "BeanBot";
-    String name;
+    public String name;
     public GameMap map = null;
     public Position currentPosition = null;
     public int moveCount = 0;

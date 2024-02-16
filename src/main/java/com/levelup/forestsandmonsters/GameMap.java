@@ -29,7 +29,7 @@ import com.levelup.model.Position;
 
     public Position calculatePosition(Position startingPosition, DIRECTION direction) {
         int calculatedX = startingPosition.getX();
-        int calculatedY = startingPosition.getY();
+        int calculatedY = startingPosition.getX();
 
         if(direction.equals(DIRECTION.NORTH)){
             calculatedY = calculatedY + 1;
