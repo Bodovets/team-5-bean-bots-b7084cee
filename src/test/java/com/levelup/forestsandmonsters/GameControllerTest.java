@@ -2,20 +2,29 @@ package com.levelup.forestsandmonsters;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.Assert.assertTrue;
 
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 
+@RunWith(JUnit4.class)
 public class GameControllerTest {
+    private GameController testObj;
+
+    @Before
+    public void init() {
+        testObj = new GameController();
+    }
+
     @Test
     public void initializationCreatesResults() {
-        GameController testObj = new GameController();
         assertNotNull(testObj.status);
     }
 
     @Test
     public void gameStatusToStringTest() {
-        GameController testObj = new GameController();
         GameController.GameStatus gameStatus = testObj.getStatus();
         String name = "Joe";
         gameStatus.characterName = name;
@@ -29,7 +38,6 @@ public class GameControllerTest {
 
     @Test
     public void initMoveCountTest() {
-        GameController testObj = new GameController();
         GameController.GameStatus gameStatus = testObj.getStatus();
         assertEquals(0, gameStatus.moveCount);
     }

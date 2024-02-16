@@ -9,7 +9,6 @@ public class GameController {
     public class GameStatus {
         public String characterName = DEFAULT_CHARACTER_NAME;
         public Point currentPosition = null;
-        
         public int moveCount = 0;
 
         @Override
