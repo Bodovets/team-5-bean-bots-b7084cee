@@ -7,25 +7,26 @@ public class GameController {
     static final String DEFAULT_CHARACTER_NAME = "Character";
 
     public class GameStatus {
-        // TODO: Add other status data
-        public int currentPositionX;
-        public int currentPositionY;
         public String characterName = DEFAULT_CHARACTER_NAME;
         public Point currentPosition = null;
-        // TODO: Write a failing unit test that will force you to set this to the right number
-        public int moveCount = -100;
+        
+        public int moveCount = 0;
 
         @Override
         public String toString() {
-        return "GameStatus [characterName=" + characterName + ", currentPositionX=" + currentPositionX
-                + ", currentPositionY=" + currentPositionY + ", moveCount=" + moveCount + "]";
-    }
+        return "GameStatus [characterName=" + characterName + ", currentPosition" + currentPosition
+                + ", moveCount=" + moveCount + "]";
+        }
+        public GameStatus() {
+            this.currentPosition = new Point();
+        }
     }
 
     GameStatus status;
 
     public GameController() {
-        status = new GameStatus();
+        this.status = new GameStatus();
+        this.status.moveCount = 0;
     }
 
     // TODO: Ensure this AND CLI commands match domain model
