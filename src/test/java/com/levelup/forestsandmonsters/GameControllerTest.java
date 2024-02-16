@@ -50,11 +50,13 @@ public class GameControllerTest {
         assertNotNull(testObj.character);
     }
 
-    // @Test
-    // public void startGameTest() {
-    //     testObj.startGame();
-    //     assertNotNull(testObj.getStatus());
-    //     assertNotNull(testObj.character);
-    // }
+    @Test
+    public void startGameTest() {
+        testObj.startGame();
+        assertNotNull(testObj.getStatus());
+        assertNotNull(testObj.character);
+        assertNotNull(testObj.character.map);
+        assertEquals(0, testObj.status.moveCount);
+    }
 
 }

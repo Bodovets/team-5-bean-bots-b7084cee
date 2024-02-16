@@ -38,8 +38,6 @@ public class GameController {
         NORTH, SOUTH, EAST, WEST
     }
 
-    // Pre-implemented to demonstrate ATDD
-    // TODO: Update this if it does not match your design
     public void createCharacter(String name) {
         if (name != null && !name.equals("")) {
             status.characterName = name;
@@ -51,6 +49,8 @@ public class GameController {
     }
 
     public void startGame() {
+        createCharacter(DEFAULT_CHARACTER_NAME);
+        this.character.map = new GameMap();
         // TODO: Implement startGame - Should probably create tiles and put the character
         // on them?
         // TODO: Should also update the game results?
