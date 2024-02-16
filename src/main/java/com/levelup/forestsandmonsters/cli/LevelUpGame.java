@@ -84,8 +84,7 @@ public class LevelUpGame implements Quit.Command {
   private void printSummary() {
     System.out.println("Exiting the mysterious land!");
     for (GameStatus status : gameHistory) {
-      // TODO: Override toString on game status to print pretty
-      System.out.println(status);
+            System.out.println(status);
     }
     // TODO: Print anything else you committed to in your mockup
   }

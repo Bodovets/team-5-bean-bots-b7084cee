@@ -80,4 +80,6 @@ public class GameController {
         return this.map.getTotalPositions();
     }
 
+    
+
 }

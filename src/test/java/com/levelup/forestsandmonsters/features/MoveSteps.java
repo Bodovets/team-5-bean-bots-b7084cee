@@ -12,8 +12,9 @@ import io.cucumber.java.en.When;
 
 public class MoveSteps {
 
-    GameController testObj = new GameController();
+    GameController gc;
     int startX, startY, endX, endY;
+    int startingMoveCount, endingMoveCount;
     GameController.DIRECTION direction;
     Point currentPosition;
 
@@ -27,11 +28,26 @@ public class MoveSteps {
         this.startY = startY;
     }
 
-    @Given("the player chooses to move in {word}")
-    public void givenCharacterChoosesDirection(String direction) {
+    @Given("the current move count is {int}")
+    public void the_current_move_count_is_starting_move_count(int startingMoveCount) {
+        this.startingMoveCount = startingMoveCount;
+    }
+
+    @Given("the player choses to move in {word}")
+    public void givenPlayerChoosesDirection(String direction) {
         this.direction = GameController.DIRECTION.valueOf(direction);
     }
 
+    @When("the character moves")
+    public void theCharacterMoves() {
+        gc = new GameController();
+        gc.startGame();
+        gc.setCharacterPositionAndMoveCount(new Point(this.startX, this.startY), this.startingMoveCount);
+        gc.move(this.direction);
+        GameController.GameStatus status = gc.getStatus();
+        this.currentPosition = status.currentPosition;
+        this.endingMoveCount = status.moveCount;
+    }
 
     @Then("the character is now at position with XCoordinates {int}")
     public void checkXCoordinates(int endX) {
@@ -45,9 +61,9 @@ public class MoveSteps {
         assertEquals(endY, this.currentPosition.y);
     }
 
-    @Then("the new move count is {int}")
-    public void checkMoveCount(int endingMoveCount) {
-        assertEquals(endingMoveCount, testObj.getStatus().moveCount);
+    @Then("the ending move count is {int}")
+    public void the_ending_move_count_is(int endingMoveCount) {
+        assertEquals(endingMoveCount, this.endingMoveCount);
     }
 
 }

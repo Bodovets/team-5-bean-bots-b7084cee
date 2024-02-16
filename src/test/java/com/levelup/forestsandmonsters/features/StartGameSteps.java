@@ -1,43 +1,35 @@
 package com.levelup.forestsandmonsters.features;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.levelup.forestsandmonsters.GameController;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import java.awt.Point;
 
 public class StartGameSteps {
 
-    GameController testObj;
+    GameController gc;
 
     @When("the game is started")
-    public void whenTheCharacterSetsTheirName() {
-        testObj = new GameController();
-        testObj.startGame();
+    public void the_game_is_started() {
+        gc = new GameController();
+        gc.startGame();
     }
 
-    @Then("the Game has {int} positions")
-    public void thenTheGameSetsTheCharactersName(int numPositions) {
-        assertEquals(numPositions, testObj.getTotalPositions());
+    @Then("the map is initialized with number of positions {int}")
+    public void the_map_is_initialized_with_num_positions_positions(int numPositions) {
+        assertEquals(numPositions, gc.getTotalPositions());
     }
 
-    @Then("the Game sets the character's X position to {int}")
-    public void checkXPosition(int xPosition)
-    {
-        assertEquals(xPosition, testObj.getStatus().currentPosition.x);
-    }
+    @Then("the character is at the starting position {word}")
+    public void the_character_is_at_the_starting_position_character_starting_position(String coordinatesString) {
+        String[] coordinates = coordinatesString.split(",");
+        int x = Integer.parseInt(coordinates[0]);
+        int y = Integer.parseInt(coordinates[1]);
 
-    @Then("the Game sets the character's Y position to {int}")
-    public void checkYPosition(int yPosition) 
-    {
-        assertEquals(yPosition, testObj.getStatus().currentPosition.y);
+        Point expectedCoordinates = new Point(x,y);
+        assertEquals(expectedCoordinates, gc.getStatus().currentPosition);
     }
-
-    @Then("the move count is {int}")
-    public void checkMoveCount(int moveCount) 
-    {
-        assertEquals(moveCount, testObj.getStatus().moveCount);
-    }
-
+    
 }
