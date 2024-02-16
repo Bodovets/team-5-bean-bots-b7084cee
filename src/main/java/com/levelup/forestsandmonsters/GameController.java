@@ -2,9 +2,12 @@ package com.levelup.forestsandmonsters;
 
 import java.awt.Point;
 
+import com.levelup.model.Character;
+
 public class GameController {
 
     static final String DEFAULT_CHARACTER_NAME = "Character";
+    Character character;
     
 
     public class GameStatus {
@@ -27,6 +30,7 @@ public class GameController {
     public GameController() {
         this.status = new GameStatus();
         this.status.moveCount = 0;
+
     }
 
     // TODO: Ensure this AND CLI commands match domain model
@@ -39,8 +43,10 @@ public class GameController {
     public void createCharacter(String name) {
         if (name != null && !name.equals("")) {
             status.characterName = name;
+            this.character = new Character(name);
         } else {
             status.characterName = DEFAULT_CHARACTER_NAME;
+            this.character = new Character(DEFAULT_CHARACTER_NAME);
         }
     }
 

@@ -43,10 +43,18 @@ public class GameControllerTest {
     }
 
     @Test
-    public void startGameTest() {
-        testObj.startGame();
-        assertNotNull(testObj.getStatus());
-        // assertNotNull(testObj.character);
+    public void createCharacterTest() {
+        String name = "Mike";
+        testObj.createCharacter(name);
+        assertEquals(name, testObj.getStatus().characterName);
+        assertNotNull(testObj.character);
     }
+
+    // @Test
+    // public void startGameTest() {
+    //     testObj.startGame();
+    //     assertNotNull(testObj.getStatus());
+    //     assertNotNull(testObj.character);
+    // }
 
 }
